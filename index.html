@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mi Estética — Maquillaje y Peinado</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rosa-oscuro: #d63384;
+    --rosa-claro: #ffb6d9;
+    --dorado: #c9a86a;
+    --beige: #fff6fb;
+    --marron: #4a341f;
+  }
+
+  *{box-sizing:border-box}
+  html {scroll-behavior: smooth;}
+  body{
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    background: var(--beige);
+    color:#333;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* HEADER / NAV */
+  header{
+    position: sticky;
+    top:0;
+    z-index:999;
+    background: linear-gradient(90deg,var(--rosa-claro),#ffd7ec);
+    border-bottom:4px solid var(--dorado);
+    padding:12px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    color:#fff;
+    font-weight:700;
+    font-size:20px;
+    font-family:'Playfair Display', serif;
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+  }
+  nav{
+    display:flex;
+    gap:14px;
+    align-items:center;
+  }
+  nav a{
+    color:#a31818;
+    text-decoration:none;
+    font-weight:600;
+    padding:8px 10px;
+    border-radius:8px;
+    transition: all .22s ease;
+    font-size:15px;
+  }
+  nav a:hover{ color: var(--marron); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+  .menu-btn { display:none; cursor:pointer; color:#fff; font-size:22px; }
+
+  /* HERO / INICIO */
+ .hero{
+    background: linear-gradient(135deg, rgba(151, 86, 141, 0.9), rgba(255,239,246,0.9));
+    min-height: 420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    border-bottom-left-radius:60px;
+    border-bottom-right-radius:60px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+}
+
+
+  /* SECCIONES */
+  .container{
+    width: min(1180px, 92%);
+    margin: 40px auto;
+  }
+  .section-title{
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    color:var(--rosa-oscuro);
+    margin: 8px 0 24px;
+  }
+
+  /* Servicios grid */
+  .servicios-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap:28px;
+  }
+  .servicio{
+    background:#fff;
+    border-radius:16px;
+    padding:16px;
+    display:flex;
+    gap:18px;
+    align-items:center;
+    border:2px solid rgba(201,168,106,0.08);
+    transition: transform .24s ease, box-shadow .24s ease;
+  }
+  .servicio:hover{ transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+
+  /* 🔥 IMÁGENES MÁS GRANDES EN LOS SERVICIOS */
+  .servicio .thumb{
+    width:130px;
+    height:130px;
+    border-radius:14px;
+    overflow:hidden;
+    flex-shrink:0;
+    border:3px solid var(--dorado);
+  }
+  .servicio img{ width:100%; height:100%; object-fit:cover; }
+
+  /* MAQUILLAJE Y PEINADO (detalle) */
+  .maqui-grid{
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:26px;
+    align-items:start;
+  }
+
+  /* 🔥 Galería lateral con imágenes más grandes */
+  .side-gallery{
+    display:grid;
+    gap:18px;
+  }
+  .side-gallery img{
+    width:100%;
+    height:260px; /* antes 190px */
+    object-fit:cover;
+    border-radius:12px;
+    border:3px solid rgba(201,168,106,0.12);
+  }
+
+  /* CONTACTO */
+  .contact-card{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(180deg,#fff,#fff9fb);
+    padding:18px;
+    border-radius:12px;
+    border:2px solid rgba(201,168,106,0.08);
+  }
+
+  footer{
+    margin-top:40px;
+    background:var(--rosa-claro);
+    text-align:center;
+    padding:16px;
+    color:#fff;
+    font-weight:600;
+    border-top: 3px solid var(--dorado);
+  }
+
+  @media (max-width:980px){
+    .maqui-grid{ grid-template-columns:1fr; }
+    nav{ display:none; }
+    .menu-btn{ display:block; }
+  }
+</style>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Mi Estética</div>
+
+    <nav id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#maquillaje">Maquillaje y Peinado</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="menu-btn" id="menuBtn" aria-hidden="true">☰</div>
+  </header>
+
+  <!-- HERO / INICIO -->
+  <section class="hero" id="inicio" aria-label="Inicio">
+    <div class="wrap">
+      <h1>Maquillaje & Peinado Profesional</h1>
+      <p>Resaltamos tu belleza con lujo de detalles: novias, eventos, sesiones y looks diarios.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contacto">Reserva ahora</a>
+        <a class="btn secondary" href="#servicios">Ver servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <main class="container">
+    <h2 class="section-title" id="servicios">Nuestros servicios</h2>
+
+    <div class="servicios-grid" aria-label="Lista de servicios">
+      <article class="servicio">
+        <div class="thumb"><img src="img/maquillaje-profesional.jpg" alt="Maquillaje profesional"></div>
+        <div>
+          <h4>Maquillaje profesional</h4>
+          <p>Maquillaje social, de novia, editorial y para sesiones fotográficas.</p>
+        </div>
+      </article>
+
+      <article class="servicio">
+        <div class="thumb"><img src="img/peinado.jpg" alt="Peinado elegante"></div>
+        <div>
+          <h4>Peinado</h4>
+          <p>Recogidos, ondas, chongos y estilos personalizados.</p>
+        </div>
+      </article>
+
+      <article class="servicio">
+        <div class="thumb"><img src="img/trenzas.jpg" alt="Trenzas"></div>
+        <div>
+          <h4>Trenzas y extensiones</h4>
+          <p>Trenzas modernas, con volumen y técnicas de larga duración.</p>
+        </div>
+      </article>
+
+      <article class="servicio">
+        <div class="thumb"><img src="img/semirrecogidos.jpg" alt="Semirecogidos"></div>
+        <div>
+          <h4>Semirecogidos</h4>
+          <p>Estilos románticos, semi-formales y casual-chic.</p>
+        </div>
+      </article>
+
+      <article class="servicio">
+        <div class="thumb"><img src="img/peinados_infantiles.jpg" alt="Peinados niñas"></div>
+        <div>
+          <h4>Peinados infantiles</h4>
+          <p>Peinados dulces y cómodos para niñas y pequeñas clientes.</p>
+        </div>
+      </article>
+
+      <article class="servicio">
+        <div class="thumb"><img src="img/pestañas.jpg" alt="Pestañas y cejas"></div>
+        <div>
+          <h4>Pestañas & Cejas</h4>
+          <p>Lifting, extensiones y diseño de cejas con técnicas profesionales.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- MAQUILLAJE Y PEINADO (detalle) -->
+    <section id="maquillaje" style="margin-top:48px;">
+      <h2 class="section-title">Maquillaje y Peinado — Especialidades</h2>
+
+      <div class="maqui-grid">
+        <div class="card-large">
+          <h3>Servicios destacados</h3>
+          <p>Ofrecemos paquetes completos para cada tipo de evento. Nuestro equipo usa productos de larga duración y técnicas que respetan la salud de tu piel y cabello.</p>
+
+          <div class="features">
+            <div class="feature"><div class="dot"></div><div><strong>Maquillaje de novia</strong><br><small>Prueba incluida, look a medida y retoques el día del evento.</small></div></div>
+            <div class="feature"><div class="dot"></div><div><strong>Look de fiesta</strong><br><small>Maquillaje intenso o natural según preferencia.</small></div></div>
+            <div class="feature"><div class="dot"></div><div><strong>Peinado a medida</strong><br><small>Ondas, recogidos y semirecogidos con fijación profesional.</small></div></div>
+            <div class="feature"><div class="dot"></div><div><strong>Asesoría de imagen</strong><br><small>Recomendaciones según rasgos, tono de piel y vestido/estilo.</small></div></div>
+          </div>
+
+
+        </div>
+
+        <aside class="side-gallery" aria-hidden="false">
+          <img src="img/maquillaje_novia.jpg" alt="Galería 1">
+          <img src="img/peinado_medida.jpg" alt="Galería 2">
+          <img src="img/asesoria_imagen.jpg" alt="Galería 3">
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section style="margin-top:44px;">
+      <h2 class="section-title" id="contacto">Contáctanos</h2>
+
+      <div class="contact-card" role="region" aria-label="Información de contacto">
+        <div style="text-align:left;">
+          <p style="margin:0 0 6px;"><strong>Tel / WhatsApp:</strong> <a href="tel:+525512345678" style="color:var(--marron); text-decoration:none;">55 1234 5678</a></p>
+          <p style="margin:0 0 6px;"><strong>Instagram:</strong> <a href="#" style="color:var(--marron); text-decoration:none;">@mi_estetica</a></p>
+          <p style="margin:0 0 6px;"><strong>Dirección:</strong> Tulcingo de Valle</p>
+        </div>
+
+        <div style="text-align:center;">
+          <p style="margin:0 0 6px;">Horario</p>
+          <p style="margin:0;font-weight:700;">Lun - Sáb: 9:00 - 19:00</p>
+        </div>
+      </div>
+      
+    <!-- AQUÍ PEGAS EL MAPA -->
+    <div class="mapa">
+    <center><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1896.7861986953976!2d-98.44543946184952!3d18.045037567892187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cf2f7b1d2009c3%3A0xcb88eb121987b28a!2sProgreso%20puebla!5e0!3m2!1sen!2smx!4v1764810032045!5m2!1sen!2smx" width="1000" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></center>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 Mi Estética • Todos los derechos reservados
+  </footer>
+
+  <!-- Pequeño script: menú móvil y enlace activo -->
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const nav = document.getElementById('navLinks');
+
+      // Mobile toggle
+      menuBtn && menuBtn.addEventListener('click', ()=> {
+        if (nav.style.display === 'flex') { nav.style.display = 'none'; }
+        else { nav.style.display = 'flex'; nav.style.flexDirection = 'column'; nav.style.gap = '8px'; nav.style.background = 'linear-gradient(180deg,var(--rosa-claro),#ffd7ec)'; nav.style.padding = '10px'; nav.style.position = 'absolute'; nav.style.right = '12px'; nav.style.top = '62px'; nav.style.borderRadius = '10px'; }
+      });
+
+      // Scroll spy: marcar link activo
+      const links = Array.from(document.querySelectorAll('nav a'));
+      const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+      function onScroll(){
+        const y = window.scrollY + 120; // offset
+        let idx = sections.length - 1;
+        for (let i = 0; i < sections.length; i++){
+          if (y < sections[i].offsetTop) { idx = i - 1; break; }
+        }
+        links.forEach(l => l.style.opacity = '1');
+        if (idx >= 0 && links[idx]) {
+          links.forEach(l => l.style.opacity = '0.85');
+          links[idx].style.opacity = '1';
+        }
+      }
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
